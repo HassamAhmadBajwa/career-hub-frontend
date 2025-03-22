@@ -13,8 +13,15 @@ RUN npm install
 # Copy all files
 COPY . .
 
+# Build the react app for production 
+RUN npm run build
+
+# Install serve to server static files
+RUN npm install -g serve
+
+
 # Expose the port
 EXPOSE 5173
 
 # Run the frontend
-CMD ["npm", "run", "dev", "--", "--host"]
+CMD ["serve", "-s", "build", "-l", "5173"]
