@@ -16,9 +16,8 @@ COPY . .
 # Build the react app for production 
 RUN npm run build
 
-# Install serve to server static files
+# Install serve to server static files.
 RUN npm install -g serve
-
 
 # Expose the port
 EXPOSE 5173
